@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "eyebrow": "JAPAN PROXY SHOPPING",
+    "title": "日本什麼都能代購，你想要的，我幫你帶回來",
+    "lead": "不管是美妝藥妝、服飾配件、3C家電還是生活雜貨——只要在日本買得到，傳連結或截圖給我，剩下的交給我處理。",
+    "cta_primary": "私訊我下單",
+    "cta_secondary": "看代購流程"
+  },
+  "steps": [
+    { "title": "傳訊息告訴我想要的商品", "description": "商品連結、截圖，或是店名＋品項都可以，越清楚我越好幫你確認庫存與價格。" },
+    { "title": "我會回報總金額", "description": "商品金額＋日本境內運費＋代購服務費＋國際運費，一次算給你看，確認沒問題才會下單。" },
+    { "title": "確認訂單並匯款", "description": "收到款項後我才會實際下單購買，避免商品缺貨或臨時漲價造成落差。" },
+    { "title": "日本購買、檢查、打包", "description": "商品到貨後我會拍照確認狀況，有問題會立刻跟你說，沒問題才會進行打包。" },
+    { "title": "國際寄出＋到貨通知", "description": "出貨後提供追蹤編號，讓你隨時查詢包裹狀態，抵台後也會主動通知你。" }
+  ],
+  "products": [
+    { "enabled": true, "category": "BEAUTY", "name": "商品名稱（例：藥妝保養品）", "photo": "", "price": "NT$ 000", "eta": "7–10 個工作天" },
+    { "enabled": true, "category": "FASHION", "name": "商品名稱（例：服飾配件）", "photo": "", "price": "NT$ 000", "eta": "7–10 個工作天" },
+    { "enabled": true, "category": "ELECTRONICS", "name": "商品名稱（例：3C家電）", "photo": "", "price": "NT$ 000", "eta": "7–10 個工作天" },
+    { "enabled": true, "category": "GROCERY", "name": "商品名稱（例：零食伴手禮）", "photo": "", "price": "NT$ 000", "eta": "7–10 個工作天" },
+    { "enabled": true, "category": "HOME", "name": "商品名稱（例：生活雜貨）", "photo": "", "price": "NT$ 000", "eta": "7–10 個工作天" },
+    { "enabled": true, "category": "OTHER", "name": "商品名稱（任何品項）", "photo": "", "price": "NT$ 000", "eta": "7–10 個工作天" }
+  ],
+  "notes": [
+    "報價以「下單當下」的日幣匯率計算，正式下單後若匯率有變動會提前告知。",
+    "代購服務費依商品類型與金額而定，會在報價時一併列出，確認金額無誤再匯款。",
+    "商品到貨後會拍照確認狀態，若有明顯瑕疵會立即反映，恕無法接受下單後的個人喜好退換貨。",
+    "因季節、店鋪庫存或廠商出貨速度不同，實際到貨天數會提前跟你說明預估區間。",
+    "國際運費依重量／材積計算，多樣商品可以合併包裹節省運費，會在報價時建議合併方式。"
+  ],
+  "contact": [
+    { "enabled": true, "platform": "INSTAGRAM", "handle": "@your_ig_id", "note": "私訊或限動回覆都可以" },
+    { "enabled": true, "platform": "LINE", "handle": "LINE ID：your_line_id", "note": "加好友後直接傳連結即可" },
+    { "enabled": true, "platform": "FACEBOOK", "handle": "粉專：你的粉專名稱", "note": "私訊粉專主頁" }
+  ]
+}

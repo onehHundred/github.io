@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小島直送｜日本什麼都能代購</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #f4f8f2;
+    --bg-2: #e8f1e3;
+    --ink: #1f3327;
+    --ink-soft: #4f6b58;
+    --indigo: #2f6b4f;
+    --stamp: #d97a4d;
+    --kraft: #9bb08e;
+    --gold: #c9a227;
+    --paper-line: rgba(31,51,39,0.13);
+    --radius: 2px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono{ font-family:'Space Mono', monospace; letter-spacing: 0.02em; }
+  h1,h2,h3{ font-family:'Noto Serif TC', serif; margin:0; }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+
+  body::before{
+    content:"";
+    position: fixed; inset:0;
+    pointer-events:none;
+    z-index: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, var(--paper-line) 40px);
+    opacity:0.5;
+  }
+
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 24px; position:relative; z-index:1; }
+
+  header.site{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(244,248,242,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--paper-line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 16px 24px; max-width: 1080px; margin:0 auto;
+  }
+  .brand{
+    font-family:'Noto Serif TC', serif; font-weight:900; font-size: 1.25rem;
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand .dot{ width:8px; height:8px; border-radius:50%; background: var(--stamp); display:inline-block; }
+  .nav-links{ display:flex; gap: 28px; font-size:0.92rem; }
+  .nav-links a{ text-decoration:none; color: var(--ink-soft); position:relative; padding-bottom:3px; }
+  .nav-links a:hover, .nav-links a:focus-visible{ color: var(--ink); }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background: var(--stamp);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  @media (max-width: 620px){ .nav-links{ display:none; } }
+
+  .tag{
+    position: relative;
+    background: #fbfdf9;
+    border: 1px solid var(--paper-line);
+    clip-path: polygon(14% 0%, 100% 0%, 100% 100%, 14% 100%, 0% 50%);
+    box-shadow: 0 10px 24px rgba(34,48,63,0.10);
+  }
+  .tag::before{
+    content:"";
+    position:absolute; left: 6%; top:50%; transform: translateY(-50%);
+    width:14px; height:14px; border-radius:50%;
+    background: var(--bg);
+    border: 1.5px solid var(--kraft);
+  }
+  .tag::after{
+    content:"";
+    position:absolute; left:14%; top:0; bottom:0; width:0;
+    border-left: 1.5px dashed var(--kraft);
+  }
+
+  .hero{ padding: 96px 0 72px; }
+  .hero-grid{ display:grid; grid-template-columns: 1fr; gap: 40px; align-items:center; }
+  .string{
+    width: 2px; height: 56px; margin: 0 0 0 40px;
+    background: repeating-linear-gradient(180deg, var(--kraft) 0 6px, transparent 6px 10px);
+  }
+  .hero-tag{ padding: 44px 40px 44px 64px; max-width: 640px; }
+  .eyebrow{
+    font-size: 0.8rem; letter-spacing: 0.14em; color: var(--stamp);
+    text-transform: uppercase; margin-bottom: 14px; display:inline-block;
+  }
+  .hero h1{
+    font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+    font-weight: 900; color: var(--indigo); line-height:1.25;
+  }
+  .hero p.lead{
+    margin-top: 20px; font-size: 1.05rem; color: var(--ink-soft); max-width: 46ch;
+  }
+  .hero-cta{ margin-top: 32px; display:flex; gap:14px; flex-wrap:wrap; }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 13px 26px; border-radius: var(--radius);
+    text-decoration:none; font-weight:700; font-size:0.95rem;
+    border: 1.5px solid var(--ink);
+    transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+    cursor:pointer;
+  }
+  .btn-primary{ background: var(--stamp); border-color: var(--stamp); color:#fbf9f2; }
+  .btn-primary:hover, .btn-primary:focus-visible{ transform: translateY(-2px); background:#c2673d; }
+  .btn-ghost{ background:transparent; color: var(--ink); }
+  .btn-ghost:hover, .btn-ghost:focus-visible{ transform: translateY(-2px); background: var(--ink); color:#fbf9f2; }
+  .btn:focus-visible{ outline: 2px solid var(--indigo); outline-offset: 3px; }
+
+  .section{ padding: 84px 0; border-top: 1px solid var(--paper-line); }
+  .section-head{ margin-bottom: 48px; max-width: 640px; }
+  .label-tag{
+    display:inline-flex; align-items:center; padding: 6px 18px 6px 26px;
+    font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
+    color: var(--indigo); margin-bottom: 18px;
+  }
+  .section h2{ font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--ink); }
+  .section .sub{ color: var(--ink-soft); margin-top:12px; font-size:0.98rem; }
+
+  .steps{ display:grid; gap: 0; }
+  .step{
+    display:grid; grid-template-columns: 90px 1fr; gap: 24px;
+    padding: 28px 0; border-bottom: 1px solid var(--paper-line);
+    opacity:0; transform: translateY(14px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .step.in{ opacity:1; transform:none; }
+  .step:last-child{ border-bottom:none; }
+  .step-num{
+    font-family:'Space Mono', monospace; font-weight:700; font-size:1.6rem;
+    color: var(--stamp); opacity:0.85;
+  }
+  .step h3{ font-size:1.08rem; color: var(--ink); margin-bottom:6px; }
+  .step p{ color: var(--ink-soft); margin:0; font-size:0.95rem; max-width: 58ch; }
+
+  .product-grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+  }
+  .product-card{
+    background:#fbfdf9; border:1px solid var(--paper-line); border-radius: var(--radius);
+    overflow:hidden;
+    opacity:0; transform: translateY(14px);
+    transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.2s ease;
+  }
+  .product-card.in{ opacity:1; transform:none; }
+  .product-card:hover{ box-shadow: 0 14px 28px rgba(31,51,39,0.12); }
+  .product-photo{
+    width:100%; aspect-ratio: 1 / 1; object-fit: cover;
+    background: var(--bg-2); border-bottom: 1px solid var(--paper-line);
+  }
+  .product-body{ padding: 18px 20px 22px; }
+  .product-tag{ font-size:0.7rem; color: var(--kraft); display:block; margin-bottom:8px; }
+  .product-body h3{ font-size:1.02rem; color: var(--ink); }
+  .product-meta{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--paper-line);
+  }
+  .product-price{ font-size:1.15rem; font-weight:700; color: var(--indigo); }
+  .product-price span{ font-size:0.72rem; color: var(--ink-soft); font-weight:400; display:block; margin-bottom:2px; }
+  .product-time{ text-align:right; font-size:0.78rem; color: var(--ink-soft); }
+  .product-time span{ display:block; font-size:0.68rem; color: var(--kraft); margin-bottom:2px; }
+
+  .notes{
+    background: var(--bg-2); border: 1px solid var(--paper-line);
+    padding: 32px 32px; border-radius: var(--radius);
+  }
+  .notes ul{ margin:0; padding-left: 1.1em; color: var(--ink-soft); }
+  .notes li{ margin-bottom: 10px; font-size:0.94rem; }
+  .notes li::marker{ color: var(--stamp); }
+
+  .contact-grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+    gap: 44px 28px; margin-top: 12px;
+  }
+  .contact-item{ text-align:center; }
+  .contact-item .string{ margin: 0 auto 0; }
+  .contact-tag{
+    padding: 30px 24px 30px 42px; text-align:left;
+    transition: transform 0.2s ease;
+  }
+  .contact-item:hover .contact-tag{ transform: translateY(-4px) rotate(-1deg); }
+  .contact-tag .mono{ font-size:0.72rem; color: var(--kraft); }
+  .contact-tag h3{ font-size:1.15rem; margin-top:6px; color: var(--indigo); }
+  .contact-tag p{ color: var(--ink-soft); font-size:0.9rem; margin-top:8px; }
+
+  footer{
+    padding: 40px 0 60px; text-align:center; color: var(--ink-soft); font-size:0.85rem;
+    border-top: 1px solid var(--paper-line);
+  }
+
+  .skeleton{ opacity:0.5; font-size:0.85rem; color: var(--ink-soft); padding: 12px 0; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .step, .product-card{ transition:none; opacity:1; transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <div class="brand"><span class="dot"></span>小島直送</div>
+    <nav class="nav-links">
+      <a href="#process">代購流程</a>
+      <a href="#categories">商品範例</a>
+      <a href="#notes">須知</a>
+      <a href="#contact">聯絡我</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="string"></div>
+      <div class="tag hero-tag">
+        <span class="eyebrow mono" id="hero-eyebrow"></span>
+        <h1 id="hero-title"></h1>
+        <p class="lead" id="hero-lead"></p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact" id="hero-cta-primary"></a>
+          <a class="btn btn-ghost" href="#process" id="hero-cta-secondary"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label-tag mono">HOW IT WORKS</span>
+      <h2>代購流程</h2>
+      <p class="sub">從詢問到收到包裹，每一步我都會跟你確認，不會有莫名其妙的追加費用。</p>
+    </div>
+    <div class="steps" id="steps"><div class="skeleton">載入中…</div></div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label-tag mono">WHAT WE SOURCE</span>
+      <h2>商品範例</h2>
+      <p class="sub">這裡放實際代購過的商品照片、價格與預估到貨時間，讓客人下單前先有個底。</p>
+    </div>
+    <div class="product-grid" id="products"><div class="skeleton">載入中…</div></div>
+  </div>
+</section>
+
+<section class="section" id="notes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label-tag mono">BEFORE YOU ORDER</span>
+      <h2>下單前須知</h2>
+    </div>
+    <div class="notes">
+      <ul id="notes-list"></ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label-tag mono">GET IN TOUCH</span>
+      <h2>準備好了嗎？私訊我開始下單</h2>
+      <p class="sub">選一個你常用的平台，傳商品連結或截圖給我就可以開始報價。</p>
+    </div>
+    <div class="contact-grid" id="contact-grid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">小島直送｜日本代購服務 — 本頁面內容僅供參考，請依實際服務調整</div>
+</footer>
+
+<script>
+  // ---------- 預設資料（讀取失敗時的備用內容，例如直接雙擊開檔案時）----------
+  const FALLBACK = {
+    hero: {
+      eyebrow: "JAPAN PROXY SHOPPING",
+      title: "日本什麼都能代購，你想要的，我幫你帶回來",
+      lead: "不管是美妝藥妝、服飾配件、3C家電還是生活雜貨——只要在日本買得到，傳連結或截圖給我，剩下的交給我處理。",
+      cta_primary: "私訊我下單",
+      cta_secondary: "看代購流程"
+    },
+    steps: [
+      { title: "傳訊息告訴我想要的商品", description: "商品連結、截圖，或是店名＋品項都可以，越清楚我越好幫你確認庫存與價格。" },
+      { title: "我會回報總金額", description: "商品金額＋日本境內運費＋代購服務費＋國際運費，一次算給你看，確認沒問題才會下單。" },
+      { title: "確認訂單並匯款", description: "收到款項後我才會實際下單購買，避免商品缺貨或臨時漲價造成落差。" },
+      { title: "日本購買、檢查、打包", description: "商品到貨後我會拍照確認狀況，有問題會立刻跟你說，沒問題才會進行打包。" },
+      { title: "國際寄出＋到貨通知", description: "出貨後提供追蹤編號，讓你隨時查詢包裹狀態，抵台後也會主動通知你。" }
+    ],
+    products: [
+      { enabled: true, category: "BEAUTY", name: "商品名稱（例：藥妝保養品）", photo: "", price: "NT$ 000", eta: "7–10 個工作天" },
+      { enabled: true, category: "FASHION", name: "商品名稱（例：服飾配件）", photo: "", price: "NT$ 000", eta: "7–10 個工作天" },
+      { enabled: true, category: "ELECTRONICS", name: "商品名稱（例：3C家電）", photo: "", price: "NT$ 000", eta: "7–10 個工作天" }
+    ],
+    notes: [
+      "報價以「下單當下」的日幣匯率計算，正式下單後若匯率有變動會提前告知。",
+      "代購服務費依商品類型與金額而定，會在報價時一併列出，確認金額無誤再匯款。",
+      "商品到貨後會拍照確認狀態，若有明顯瑕疵會立即反映，恕無法接受下單後的個人喜好退換貨。"
+    ],
+    contact: [
+      { enabled: true, platform: "INSTAGRAM", handle: "@your_ig_id", note: "私訊或限動回覆都可以" },
+      { enabled: true, platform: "LINE", handle: "LINE ID：your_line_id", note: "加好友後直接傳連結即可" }
+    ]
+  };
+
+  function esc(str){
+    const d = document.createElement('div');
+    d.textContent = str == null ? '' : String(str);
+    return d.innerHTML;
+  }
+
+  function render(data){
+    // Hero
+    document.getElementById('hero-eyebrow').textContent = data.hero?.eyebrow || '';
+    document.getElementById('hero-title').textContent = data.hero?.title || '';
+    document.getElementById('hero-lead').textContent = data.hero?.lead || '';
+    document.getElementById('hero-cta-primary').textContent = data.hero?.cta_primary || '私訊我下單';
+    document.getElementById('hero-cta-secondary').textContent = data.hero?.cta_secondary || '看代購流程';
+
+    // Steps
+    const stepsEl = document.getElementById('steps');
+    stepsEl.innerHTML = (data.steps || []).map((s, i) => `
+      <div class="step">
+        <div class="step-num mono">${String(i+1).padStart(2,'0')}</div>
+        <div>
+          <h3>${esc(s.title)}</h3>
+          <p>${esc(s.description)}</p>
+        </div>
+      </div>
+    `).join('');
+
+    // Products (只顯示 enabled 不是 false 的商品)
+    const productsEl = document.getElementById('products');
+    const visibleProducts = (data.products || []).filter(p => p.enabled !== false);
+    productsEl.innerHTML = visibleProducts.length ? visibleProducts.map((p, i) => `
+      <div class="product-card">
+        <img class="product-photo" src="${p.photo ? esc(p.photo) : 'https://placehold.co/400x400/e8f1e3/4f6b58?text=商品照片'}" alt="${esc(p.name)}">
+        <div class="product-body">
+          <span class="product-tag mono">${String(i+1).padStart(2,'0')} — ${esc(p.category || '')}</span>
+          <h3>${esc(p.name)}</h3>
+          <div class="product-meta">
+            <div class="product-price"><span>代購含運</span>${esc(p.price)}</div>
+            <div class="product-time"><span>預估到貨</span>${esc(p.eta)}</div>
+          </div>
+        </div>
+      </div>
+    `).join('') : '<p class="sub">目前沒有上架的商品，請到後台開啟商品的「上架顯示」開關。</p>';
+
+    // Notes
+    document.getElementById('notes-list').innerHTML = (data.notes || []).map(n => `<li>${esc(n)}</li>`).join('');
+
+    // Contact (只顯示 enabled 不是 false 的平台)
+    const contactEl = document.getElementById('contact-grid');
+    const visibleContacts = (data.contact || []).filter(c => c.enabled !== false);
+    contactEl.innerHTML = visibleContacts.map(c => `
+      <div class="contact-item">
+        <div class="string"></div>
+        <div class="tag contact-tag">
+          <span class="mono">${esc(c.platform)}</span>
+          <h3>${esc(c.handle)}</h3>
+          <p>${esc(c.note)}</p>
+        </div>
+      </div>
+    `).join('');
+
+    // 卷動顯示動畫
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.step, .product-card').forEach(el=> io.observe(el));
+  }
+
+  fetch('./data/site.json', { cache: 'no-store' })
+    .then(res => { if(!res.ok) throw new Error('no data file'); return res.json(); })
+    .then(data => render(data))
+    .catch(() => render(FALLBACK));
+</script>
+
+</body>
+</html>

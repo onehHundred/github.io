@@ -1,0 +1,73 @@
+# =====================================================================
+# 這一段 backend 設定必須換成 DecapBridge 給你的內容才能登入使用
+# 步驟：
+#   1. 到 https://decapbridge.com 免費註冊
+#   2. 新增一個 Site，連結到你的 GitHub repo（例如 yourname/yourname.github.io）
+#   3. 它會產生一段專屬的 backend 設定，把下面這段整段換掉
+# =====================================================================
+backend:
+  name: git-gateway
+  repo: your-username/your-repository        # 換成你自己的 GitHub 帳號/repo 名稱
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/your-site-id   # DecapBridge 會給你
+  gateway_url: https://gateway.decapbridge.com                    # DecapBridge 會給你
+
+# 商品照片會存在這個資料夾，並自動出現在網站上
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# 後台介面語言
+locale: "zh_Hant"
+
+collections:
+  - name: "site"
+    label: "網站內容"
+    files:
+      - file: "data/site.json"
+        label: "網站設定"
+        name: "site"
+        fields:
+          - label: "首頁區塊"
+            name: "hero"
+            widget: object
+            fields:
+              - { label: "小標籤（英文）", name: "eyebrow", widget: string }
+              - { label: "主標題", name: "title", widget: string }
+              - { label: "說明文字", name: "lead", widget: text }
+              - { label: "主要按鈕文字", name: "cta_primary", widget: string }
+              - { label: "次要按鈕文字", name: "cta_secondary", widget: string }
+
+          - label: "代購流程"
+            name: "steps"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "步驟標題", name: "title", widget: string }
+              - { label: "步驟說明", name: "description", widget: text }
+
+          - label: "商品"
+            name: "products"
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "上架顯示（關閉就不會出現在網站上）", name: "enabled", widget: boolean, default: true }
+              - { label: "分類標籤（英文，例如 BEAUTY）", name: "category", widget: string }
+              - { label: "商品名稱", name: "name", widget: string }
+              - { label: "商品照片", name: "photo", widget: image, required: false }
+              - { label: "價格（例：NT$ 850）", name: "price", widget: string }
+              - { label: "預估到貨時間（例：7–10 個工作天）", name: "eta", widget: string }
+
+          - label: "下單前須知"
+            name: "notes"
+            widget: list
+            field: { label: "項目內容", name: "item", widget: string }
+
+          - label: "聯絡方式"
+            name: "contact"
+            widget: list
+            summary: "{{fields.platform}}"
+            fields:
+              - { label: "啟用（關閉就不會出現在網站上）", name: "enabled", widget: boolean, default: true }
+              - { label: "平台名稱（例：INSTAGRAM／LINE／FACEBOOK）", name: "platform", widget: string }
+              - { label: "帳號 / ID", name: "handle", widget: string }
+              - { label: "備註說明", name: "note", widget: string }
